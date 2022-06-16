@@ -1,0 +1,109 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+
+{% block js %} 
+
+<script src="{% static 'app/js/validador.js' %} "></script>
+<script src="{% static 'app/js/info_webService.js' %} "></script>
+
+{% endblock %} 
+
+{% block css %}
+
+<!-- incorporamos jquery  -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<!-- jquery validate-->
+    <script language="javascript" type="text/javascript"
+        src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
+
+{% endblock %}
+
+{% block contenido %} 
+
+<section class="contenido4">
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="#gatos">
+                    <img src="{% static 'app/img/carrusel/carruselgato.jpg'%}" class="d-block w-100" alt="...">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#roedores">
+                    <img src="{% static 'app/img/carrusel/carruselhamster.jpg'%}" class="d-block w-100" alt="...">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#perros">
+                    <img src="{% static 'app/img/carrusel/carruselPerro.jpg'%}" class="d-block w-100" alt="...">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#reptiles">
+                    <img src="{% static 'app/img/carrusel/carruselSerp.jpg'%}" class="d-block w-100" alt="...">
+                </a>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</section>
+
+<section class="contenido">
+    <div class="texto">
+        <h5><a> Tienda de mascotas "La cigueña" </a></h5>
+    </div>
+
+    <div class="nombre">
+        <h1> TIPO DE CANNABIS PARA TU MASCOTA</h1>
+    </div>
+
+    <div class="redes_sociales">
+        <h5>
+            <a> instagram </a>
+        </h5>
+    </div>
+</section>
+<!------------------------------------------------------------>
+
+
+<section class="contenido3">
+    
+    
+    <div class="comprar">
+        <div class="container">
+            
+            <div class="row">
+               
+                <button class="btn btn-primary" id="btn-cargar">Cargar Información</button>            
+            </div>
+            <div class="row">
+                <div id="info" class="text-center">
+                    <h1> Id canabbis</h1>
+                    <h1> Uso medico</h1>
+                    <h1> Tipo efecto</h1>
+                    <h1> Beneficio</h1>
+                    <h1></h1>
+                </div>
+            </div>   
+    
+        </div>
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+
+
+{% block contenido %} 
+
+
+<section class="contenido3">
+    <div class="comprar">
+      <h1> ¿Productos para que mascota quieres?</h1>
+      <h2>(Selecciona con las flechas)</h2>
+    </div>
+
+  </section>
+
+  <section class="contenido">
+    <div class="texto">
+        <h5><a> Tienda de mascotas "La cigueña" </a></h5>
+    </div>
+
+    <div class="nombre">
+        <h1> PRODUCTOS DISPONIBLES</h1>
+    </div>
+
+    <div class="redes_sociales">
+        <h5>
+            <a> instagram </a>
+        </h5>
+    </div>
+</section>
+
+
+  {% load humanize %}
+  <section>
+    <div id="work" class="portfolio">       
+        <div class="container2">
+            <div class="row">
+                <div class="col-lg-12 col-lg-offset-1 text-center text">
+                    <h3>Productos para comprar</h3>
+                    <div class="row">     
+                        {% for p in productos %}
+                        <div class="col-md-6 col-sm-6">
+                             
+                            <h1> {{ p.marca | capfirst }}  </h1>
+                            <h1> {{ p.nombre | title }}  </h1>
+                            <h1> ${{ p.precio | intcomma }}  </h1>
+
+                            <div class="portfolio-item"> <a href="#"> 
+                                {% if p.imagen %}
+                                <img class="img-portfolio img-responsive"
+                                    src="{{ p.imagen.url }}" id="nft1"> </a>
+                                {% endif %}
+                            </div>
+
+                            <h3> {{ p.descripcion | capfirst }}  </h3>
+                             
+                        </div>       
+                        {% endfor %}      
+                    </div>                   
+                    <!-- /.row (nested) -->
+                    <a href="{% url 'productos' %}" class="view-more">COMPRA AQUI!</a>
+                </div>               
+                <!-- /.col-lg-10 -->
+            </div>           
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+
+
+</section>
+
+
+
+{% endblock %}

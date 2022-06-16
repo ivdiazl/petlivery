@@ -1,0 +1,110 @@
+{% extends 'app/base.html'%}
+
+{%load static %}
+
+{% block js %} 
+
+{% endblock %} 
+
+{% block css %}
+
+{% endblock %}
+
+{%block contenido %} 
+
+<section>
+    <div class="principal">
+        <div class="d-flex justify-content-center">
+            <img src="{% static 'app/img/mascotas/perrito1.jpg' %} " id="mono1" alt="perro1">
+            <img src="{% static 'app/img/mascotas/gatito2.jpg' %} " id="mono2" alt="gato2">
+            <img src="{% static 'app/img/mascotas/hamster3.jpg' %} " id="mono3" alt="hams3">
+
+        </div>
+    </div>
+</section>
+
+<section class="contenido">
+    <div class="texto">
+        <h5><a> Tienda de mascotas "La cigueña" </a></h5>
+    </div>
+
+    <div class="nombre">
+        <h1> BIENVENIDOS!</h1>
+    </div>
+
+    <div class="redes_sociales">
+        <h5>
+            <a> instagram </a>
+        </h5>
+    </div>
+</section>
+
+<section class="contenido2">
+    <div class="contenedor_inferior">
+        <aside class="lateral_1">
+            <h1>¿Qué puedes encontrar acá?</h1>
+            <p>Todo lo que necesites para tu mascota! Comida, camas, productos de limpieza y muchas
+                otras cosas más!
+                Y si no lo tenemos en venta, lo conseguimos por ti! </p>
+            <img src="{% static 'app/img/collageanimales.jpg' %} " alt="animales">
+
+        </aside>
+        <aside class="lateral_2">
+
+            <h1>¿Quieres una mascota?</h1>
+
+            <p>Tenemos distintas razas para ofrecerte, tanto de perros como de gatos! Distintos hamsters
+                y si estas interesado en animales exoticos,
+                estás en la página correcta! Tenemos desde serpientes hasta animales acuaticos! 
+            </p>
+        </aside><br>
+    </div>
+</section>
+
+<section>
+    <div id="work" class="portfolio">
+        <div class="container2">
+            <div class="row">
+                <div class="col-lg-12 col-lg-offset-1 text-center text">
+                    <h3>Productos para comprar</h3>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="portfolio-item"> <a href="#"> <img class="img-portfolio img-responsive"
+                                        src="{% static 'app/img/ranking/arenero.jpg' %} " id="nft1"> </a> </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="portfolio-item"> <a href="#"> <img class="img-portfolio img-responsive"
+                                        src="{% static 'app/img/ranking/comidahamster.jpg' %} " id="nft2"> </a> </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="portfolio-item"> <a href="#"> <img class="img-portfolio img-responsive"
+                                        src="{% static 'app/img/ranking/jaulaserp.jpg' %} " id="nft3"> </a> </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="portfolio-item"> <a href="#"> <img class="img-portfolio img-responsive"
+                                        src="{% static 'app/img/ranking/shampoo.jpeg' %} " id="nft4"> </a> </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="portfolio-item"> <a href="#"> <img class="img-portfolio img-responsive"
+                                        src="{% static 'app/img/ranking/shampoo.jpeg' %} " id="nft4"> </a> </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="portfolio-item"> <a href="#"> <img class="img-portfolio img-responsive"
+                                        src="{% static 'app/img/ranking/shampoo.jpeg' %} " id="nft4"> </a> </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                    <a href="{% url 'productos' %}" class="view-more">COMPRA AQUI!</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+
+
+</section>
+
+
+{% endblock %}
