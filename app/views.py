@@ -1,8 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto
-from .forms import ContactoForm, ProductoForm
+from .forms import ContactoForm, ProductoForm, CustomUserCreationForm
+from django.contrib.auth import authenticate, login
+from rest_framework import viewsets
+from .serializers import ProductoSerializer
 
 # Create your views here.
+
+class ProductoViewset(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
 
 def home(request):
     return render(request, 'app/home.html')
@@ -78,3 +85,19 @@ def eliminar_producto(request, id):
     producto = get_object_or_404(Producto,id=id)
     producto.delete()
     return redirect(to="listar_productos")
+
+def registro(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+    
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            return redirect(to="home")
+        data["form"] = formulario
+    return render(request, 'registration/registro.html',data)
+
