@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Producto
-from .forms import ContactoForm, ProductoForm, CustomUserCreationForm
+from .models import Producto, Animal
+from .forms import ContactoForm, ProductoForm, CustomUserCreationForm, AnimalForm
 from django.contrib.auth import authenticate, login
 from rest_framework import viewsets
 from .serializers import ProductoSerializer
@@ -101,3 +101,54 @@ def registro(request):
         data["form"] = formulario
     return render(request, 'registration/registro.html',data)
 
+
+def animales(request):
+    animales = Animal.objects.all()
+    data = {
+        'animales': animales
+    }
+    return render(request, 'app/animales.html',data)
+
+def agregar_animal(request):
+    data = {
+        'form': AnimalForm()
+    }
+    
+    if request.method == 'POST':
+        formulario = AnimalForm(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "guardado correctamente"
+        else:
+            data["form"] = formulario
+    
+    return render(request, 'app/animal/agregar.html',data)
+
+def listar_animales(request):
+    animales = Animal.objects.all()
+    data = {
+        'animales': animales
+    }
+    return render(request, 'app/animal/listar.html',data)
+
+def modificar_animal(request, id):
+    
+    animal = get_object_or_404(Animal,id=id)
+    data = {
+        'form': AnimalForm(instance=animal)
+    }
+    
+    if request.method == 'POST':
+        formulario = AnimalForm(data=request.POST, instance=animal, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to="listar_animales")
+        data["form"] = formulario
+    
+    return render(request, 'app/animal/modificar.html',data)
+
+def eliminar_animal(request, id):
+    
+    animal = get_object_or_404(Animal,id=id)
+    animal.delete()
+    return redirect(to="listar_animales")

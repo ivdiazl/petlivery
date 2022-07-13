@@ -55,6 +55,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'listar_productos' %}">Listar Producto</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'animales' %}">Animales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'agregar_animal' %}">Agregar Animal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'listar_animales' %}">Listar Animales</a>
+                        </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
@@ -69,12 +78,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'registro' %}">Regístrate</a>
                         </li>
+                        
                         {% endif %}
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    
                 </div>
             </div>
         </nav>

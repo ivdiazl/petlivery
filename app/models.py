@@ -33,3 +33,19 @@ class Contacto(models.Model):
     
     def __str__(self):
         return self.nombre
+
+
+class Tipo_animal(models.Model):
+    nombreA = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.nombreA
+    
+class Animal(models.Model):
+    nombreA = models.CharField(max_length=50)
+    precio = models.IntegerField()
+    descripcion = models.TextField()
+    tipo_animal = models.ForeignKey(Tipo_animal, on_delete=models.PROTECT)
+    
+    def __str__(self):
+        return self.nombreA

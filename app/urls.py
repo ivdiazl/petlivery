@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import home, cotizacion, webService, productos, contacto, agregar_producto, listar_productos, modificar_producto, eliminar_producto, registro, ProductoViewset
+from .views import home, cotizacion, webService, productos, contacto, agregar_producto, listar_productos, modificar_producto, eliminar_producto, registro, ProductoViewset, animales, agregar_animal, listar_animales, modificar_animal, eliminar_animal
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -18,4 +18,9 @@ urlpatterns = [
     path('eliminar-producto/<id>/', eliminar_producto, name="eliminar_producto"),
     path('registro/', registro, name="registro"),
     path('api/', include(router.urls)),
+    path('animales/', animales, name="animales"),
+    path('agregar-animal/', agregar_animal, name="agregar_animal"),
+    path('listar-animales/', listar_animales, name="listar_animales"),
+    path('modificar-animal/<id>/', modificar_animal, name="modificar_animal"),
+    path('eliminar-animal/<id>/', eliminar_animal, name="eliminar_animal"),
 ]
